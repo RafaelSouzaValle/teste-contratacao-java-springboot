@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,9 +23,9 @@ public class Requisicao implements Serializable {
 	private Long id;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Cliente cliente;
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Produto> produtos;
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Endereco localEntrega;
 
 	public Requisicao(Long id, Cliente cliente, List<Produto> produtos, Endereco localEntrega) {
