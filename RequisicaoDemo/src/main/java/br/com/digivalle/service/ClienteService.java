@@ -32,7 +32,6 @@ public class ClienteService {
 
 	public Cliente update(Cliente cliente, Long id) {
 		return repository.findById(id).map(c -> {
-			c.setId(cliente.getId());
 			c.setEmail(cliente.getEmail());
 			c.setNome(cliente.getNome());
 			c.setTelefone(cliente.getTelefone());

@@ -32,7 +32,6 @@ public class EnderecoService {
 
 	public Endereco update(Endereco endereco, Long id) {
 		return repository.findById(id).map(e -> {
-			e.setId(endereco.getId());
 			e.setBairro(endereco.getBairro());
 			e.setCidade(endereco.getCidade());
 			e.setComplemento(endereco.getComplemento());

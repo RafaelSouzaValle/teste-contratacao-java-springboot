@@ -3,10 +3,12 @@ package br.com.digivalle.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.digivalle.model.Produto;
 import br.com.digivalle.repository.ProdutoRepository;
 
+@Service
 public class ProdutoService {
 
 	@Autowired
@@ -30,7 +32,6 @@ public class ProdutoService {
 
 	public Produto update(Produto produto, Long id) {
 		return repository.findById(id).map(p -> {
-			p.setId(produto.getId());
 			p.setDescricao(produto.getDescricao());
 			p.setNome(produto.getNome());
 			p.setPreco(produto.getPreco());
